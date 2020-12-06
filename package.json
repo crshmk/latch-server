@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -r dotenv/config --exec babel-node src/index.js"
+    "start": "nodemon -r dotenv/config --exec babel-node src/index.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +16,9 @@
     "@babel/node": "^7.12.6",
     "@babel/preset-env": "^7.12.7",
     "babel-plugin-module-resolver": "^4.0.0",
-    "nodemon": "^2.0.6"
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.6",
+    "supertest": "^6.0.1"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -25,5 +28,19 @@
     "express": "^4.17.1",
     "helmet": "^4.2.0",
     "ramda": "^0.27.1"
+  },
+  "jest": {
+    "testMatch": [
+      "**/?(*.)+(spec|test).[jt]s?(x)"
+    ],
+    "globals": {
+      "DB_HOST": "localhost"
+    },
+    "moduleNameMapper": {
+      "~(.*)$": "<rootDir>/src/$1",
+      "^app(.*)$": "<rootDir>/src/app$1",
+      "^auth(.*)$": "<rootDir>/src/auth$1",
+      "^routes(.*)$": "<rootDir>/src/routes$1"
+    }
   }
 }

@@ -1,13 +1,13 @@
 import express from 'express'
 
 import regex from './regex'
-import test from './test'
+import route from './route'
 
 
 let router = express.Router()
 
 router.use(/^\/regex\/?$/i, regex)
 
-router.use('/test', test)
+router.use('/route', route)
 
 module.exports = router
